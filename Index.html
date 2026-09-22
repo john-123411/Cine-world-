@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CineWorld - Indian Movies</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0b0f;
+      color: white;
+    }
+
+    header {
+      background: #15151d;
+      padding: 18px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      color: #ffcc00;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    .hero {
+      padding: 70px 25px;
+      text-align: center;
+      background: linear-gradient(135deg, #171724, #0b0b0f);
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .hero span {
+      color: #ffcc00;
+    }
+
+    .hero p {
+      color: #bdbdbd;
+      margin-bottom: 25px;
+    }
+
+    .search {
+      width: 90%;
+      max-width: 550px;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .section {
+      padding: 30px 25px;
+    }
+
+    .section h2 {
+      margin-bottom: 20px;
+    }
+
+    .languages {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .language {
+      background: #1d1d27;
+      padding: 10px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      color: #ddd;
+    }
+
+    .language:hover {
+      background: #ffcc00;
+      color: #111;
+    }
+
+    .movies {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 20px;
+    }
+
+    .movie {
+      background: #17171f;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.25s;
+    }
+
+    .movie:hover {
+      transform: translateY(-5px);
+    }
+
+    .movie img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .movie-info {
+      padding: 12px;
+    }
+
+    .movie-info h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .movie-info p {
+      color: #aaa;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 30px;
+      background: #15151d;
+      color: #888;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      nav a {
+        margin-left: 8px;
+      }
+
+      .movie img {
+        height: 230px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">🎬 CineWorld</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#languages">Languages</a>
+      <a href="#movies">Movies</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to <span>CineWorld</span></h1>
+
+    <p>Discover movies from Indian cinema</p>
+
+    <input
+      type="text"
+      id="searchBox"
+      class="search"
+      placeholder="Search movies..."
+    >
+  </section>
+
+  <section class="section" id="languages">
+
+    <h2>🎭 Indian Languages</h2>
+
+    <div class="languages">
+      <div class="language">Telugu</div>
+      <div class="language">Hindi</div>
+      <div class="language">Tamil</div>
+      <div class="language">Malayalam</div>
+      <div class="language">Kannada</div>
+      <div class="language">Bengali</div>
+      <div class="language">Marathi</div>
+      <div class="language">Gujarati</div>
+      <div class="language">Punjabi</div>
+      <div class="language">Odia</div>
+      <div class="language">Assamese</div>
+      <div class="language">Bhojpuri</div>
+      <div class="language">Urdu</div>
+    </div>
+
+  </section>
+
+  <section class="section" id="movies">
+
+    <h2>🔥 Popular Movies</h2>
+
+    <div class="movies" id="movieList">
+
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500/8YFL5QQVPy3Ms2s9fNQW2s8rZsS.jpg"
+             alt="RRR">
+        <div class="movie-info">
+          <h3>RRR</h3>
+          <p>⭐ 8.0</p>
+          <p>Telugu • 2022</p>
+        </div>
+      </div>
+
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500/5YbQ5k3X2s9Q7G5X5X7vZ7V7V7V.jpg"
+             alt="Pushpa">
+        <div class="movie-info">
+          <h3>Pushpa</h3>
+          <p>⭐ 7.6</p>
+          <p>Telugu • 2021</p>
+        </div>
+      </div>
+
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500/7mK9xY5x8x9x9x9x9x9x9x9x9.jpg"
+             alt="Baahubali">
+        <div class="movie-info">
+          <h3>Baahubali</h3>
+          <p>⭐ 8.0</p>
+          <p>Telugu • 2015</p>
+        </div>
+      </div>
+
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg"
+             alt="Example Movie">
+        <div class="movie-info">
+          <h3>Indian Cinema</h3>
+          <p>⭐ 8.0</p>
+          <p>Indian Movies</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© 2026 CineWorld • Indian Movie Discovery</p>
+  </footer>
+
+  <script>
+    const searchBox = document.getElementById("searchBox");
+    const movies = document.querySelectorAll(".movie");
+
+    searchBox.addEventListener("input", function () {
+
+      const searchText = this.value.toLowerCase();
+
+      movies.forEach(function(movie) {
+
+        const title = movie
+          .querySelector("h3")
+          .textContent
+          .toLowerCase();
+
+        if (title.includes(searchText)) {
+          movie.style.display = "block";
+        } else {
+          movie.style.display = "none";
+        }
+
+      });
+
+    });
+  </script>
+
+</body>
+  </html>

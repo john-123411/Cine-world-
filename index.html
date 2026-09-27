@@ -2,1172 +2,508 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>CineWorld - Indian Movies</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CineWorld | Indian Movies</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#08080c;
+  font-family:Arial,sans-serif;
+  background:#08090d;
   color:#fff;
 }
-
-/* HEADER */
-
 header{
   position:sticky;
   top:0;
-  z-index:100;
-  background:rgba(12,12,18,.96);
-  border-bottom:1px solid #252532;
+  z-index:10;
+  background:#11131a;
+  border-bottom:1px solid #272a33;
   padding:15px 5%;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
 }
-
 .logo{
-  font-size:25px;
+  color:#ffd21c;
+  font-size:24px;
   font-weight:800;
-  color:#ffd21c;
 }
-
-nav{
-  display:flex;
-  gap:22px;
-}
-
-nav a{
-  color:#ddd;
-  text-decoration:none;
-  font-size:14px;
-}
-
-nav a:hover{
-  color:#ffd21c;
-}
-
-/* HERO */
+nav{display:flex;gap:20px}
+nav a{color:#ddd;text-decoration:none;font-size:14px}
+nav a:hover{color:#ffd21c}
 
 .hero{
-  min-height:480px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  min-height:440px;
+  display:grid;
+  place-items:center;
   text-align:center;
-  padding:70px 20px;
+  padding:60px 20px;
   background:
-    radial-gradient(circle at 50% 30%,#382900 0%,transparent 35%),
-    linear-gradient(135deg,#181824,#08080c);
+    radial-gradient(circle,#3c3000,transparent 45%),
+    linear-gradient(135deg,#191c27,#08090d);
 }
-
-.hero-content{
-  max-width:800px;
-}
-
+.hero-box{max-width:800px}
 .badge{
   display:inline-block;
   padding:8px 15px;
-  border:1px solid #4d4d5b;
+  border:1px solid #555;
   border-radius:30px;
   color:#ffd21c;
   margin-bottom:20px;
-  font-size:13px;
 }
+h1{font-size:56px;margin-bottom:18px}
+h1 span{color:#ffd21c}
+.hero p{color:#aaa;font-size:18px;margin-bottom:28px}
 
-.hero h1{
-  font-size:58px;
-  line-height:1.05;
-  margin-bottom:18px;
-}
-
-.hero h1 span{
-  color:#ffd21c;
-}
-
-.hero p{
-  color:#aaa;
-  font-size:18px;
-  margin-bottom:30px;
-}
-
-.search-box{
+.search{
   display:flex;
   max-width:620px;
   margin:auto;
-  background:#fff;
-  border-radius:12px;
+  background:white;
+  border-radius:10px;
   overflow:hidden;
 }
-
-.search-box input{
+.search input{
   flex:1;
   border:0;
   outline:0;
-  padding:17px;
+  padding:16px;
   font-size:16px;
   color:#111;
 }
-
-.search-box button{
+.search button{
   border:0;
   background:#ffd21c;
-  padding:0 25px;
-  font-size:16px;
+  padding:0 22px;
   font-weight:bold;
   cursor:pointer;
 }
 
-/* GENERAL */
-
 .container{
   width:90%;
-  max-width:1250px;
+  max-width:1200px;
   margin:auto;
 }
-
-.section{
-  padding:50px 0;
-}
-
-.section-title{
+section{padding:45px 0}
+.title{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:25px;
+  margin-bottom:22px;
 }
+.title h2{font-size:27px}
+.title span{color:#888;font-size:13px}
 
-.section-title h2{
-  font-size:27px;
-}
-
-.section-title span{
-  color:#888;
-  font-size:13px;
-}
-
-/* LANGUAGES */
-
-.language-list{
+.languages{
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
+  gap:9px;
 }
-
-.language-btn{
-  border:1px solid #30303c;
-  background:#15151d;
+.lang{
+  border:1px solid #30333d;
+  background:#15171e;
   color:#ddd;
-  padding:10px 17px;
-  border-radius:30px;
+  padding:9px 15px;
+  border-radius:25px;
   cursor:pointer;
-  transition:.2s;
 }
-
-.language-btn:hover,
-.language-btn.active{
+.lang.active,.lang:hover{
   background:#ffd21c;
   color:#111;
   border-color:#ffd21c;
 }
-
-/* FILTERS */
 
 .filters{
   display:flex;
   flex-wrap:wrap;
   gap:10px;
-  margin-bottom:30px;
+  margin-bottom:25px;
 }
-
-.filters select{
-  background:#15151d;
+select{
+  background:#15171e;
   color:#fff;
-  border:1px solid #30303c;
-  padding:12px 15px;
-  border-radius:9px;
-  outline:none;
+  border:1px solid #30333d;
+  padding:11px 13px;
+  border-radius:8px;
 }
 
-/* MOVIES */
-
-.movie-grid{
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-  gap:22px;
+  grid-template-columns:repeat(auto-fill,minmax(175px,1fr));
+  gap:18px;
 }
-
-.movie-card{
-  background:#14141b;
-  border:1px solid #242431;
-  border-radius:13px;
+.card{
+  background:#14161d;
+  border:1px solid #282b35;
+  border-radius:12px;
   overflow:hidden;
   cursor:pointer;
-  transition:.25s;
+  transition:.2s;
 }
-
-.movie-card:hover{
-  transform:translateY(-7px);
+.card:hover{
+  transform:translateY(-5px);
   border-color:#ffd21c;
 }
-
 .poster{
-  height:265px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  height:250px;
+  display:grid;
+  place-items:center;
   text-align:center;
-  padding:20px;
-  position:relative;
-  overflow:hidden;
-  background:linear-gradient(145deg,#292936,#111118);
+  padding:18px;
+  background:linear-gradient(145deg,#453900,#15161d);
 }
-
-.poster::before{
-  content:"";
-  position:absolute;
-  width:170px;
-  height:170px;
-  border-radius:50%;
-  background:rgba(255,210,28,.14);
-  top:-60px;
-  right:-50px;
+.card:nth-child(3n) .poster{
+  background:linear-gradient(145deg,#30284b,#15161d);
 }
-
-.poster::after{
-  content:"";
-  position:absolute;
-  width:130px;
-  height:130px;
-  border-radius:50%;
-  background:rgba(255,255,255,.05);
-  bottom:-55px;
-  left:-45px;
+.card:nth-child(4n) .poster{
+  background:linear-gradient(145deg,#173e42,#15161d);
 }
+.poster-icon{font-size:38px;margin-bottom:10px}
+.poster-name{font-size:19px;font-weight:bold}
+.info{padding:13px}
+.info h3{font-size:16px;margin-bottom:7px}
+.rating{color:#ffd21c;font-weight:bold}
+.meta{color:#999;font-size:12px;margin-top:5px}
 
-.poster-content{
-  position:relative;
-  z-index:2;
-}
-
-.poster-icon{
-  font-size:38px;
-  margin-bottom:12px;
-}
-
-.poster-title{
-  font-size:20px;
-  font-weight:800;
-  line-height:1.1;
-}
-
-.movie-info{
-  padding:14px;
-}
-
-.movie-info h3{
-  font-size:17px;
-  margin-bottom:9px;
-}
-
-.meta{
-  color:#999;
-  font-size:12px;
-  margin-top:5px;
-}
-
-.rating{
-  color:#ffd21c;
-  font-weight:bold;
-}
-
-/* NO RESULTS */
-
-.no-results{
+.empty{
   display:none;
   text-align:center;
   padding:50px 10px;
   color:#999;
 }
 
-/* MODAL */
-
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  z-index:200;
-  background:rgba(0,0,0,.8);
+  z-index:20;
+  background:rgba(0,0,0,.85);
   padding:20px;
   overflow:auto;
 }
-
 .modal-box{
-  max-width:650px;
-  margin:7% auto;
-  background:#17171f;
-  border:1px solid #333340;
-  border-radius:18px;
+  max-width:600px;
+  margin:8% auto;
+  background:#181a22;
+  border:1px solid #343742;
+  border-radius:16px;
   padding:28px;
   position:relative;
 }
-
 .close{
   position:absolute;
-  top:15px;
-  right:18px;
-  font-size:28px;
+  right:16px;
+  top:10px;
+  font-size:30px;
   color:#aaa;
   cursor:pointer;
 }
-
-.close:hover{
-  color:#fff;
-}
-
 .modal-poster{
-  width:150px;
-  height:210px;
-  border-radius:10px;
-  margin-bottom:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width:140px;
+  height:190px;
+  display:grid;
+  place-items:center;
   text-align:center;
   padding:15px;
-  background:linear-gradient(145deg,#403300,#17171f);
+  background:linear-gradient(145deg,#4b3d00,#171820);
+  border-radius:10px;
   color:#ffd21c;
   font-size:20px;
   font-weight:bold;
+  margin-bottom:18px;
 }
-
-.modal h2{
-  font-size:28px;
-  margin-bottom:12px;
-}
-
-.modal p{
-  color:#bbb;
-  line-height:1.7;
-  margin-top:10px;
-}
-
+.modal h2{font-size:28px}
 .details{
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
-  margin-top:18px;
+  gap:8px;
+  margin-top:15px;
 }
-
 .detail{
-  background:#242430;
-  padding:8px 12px;
+  background:#292c36;
+  padding:7px 11px;
   border-radius:20px;
   font-size:12px;
 }
-
-/* FOOTER */
+.modal p{
+  color:#bbb;
+  line-height:1.6;
+  margin-top:18px;
+}
 
 footer{
-  margin-top:40px;
-  padding:35px 20px;
   text-align:center;
-  background:#111118;
-  border-top:1px solid #242431;
+  padding:35px 20px;
+  border-top:1px solid #252832;
+  background:#101218;
   color:#777;
 }
+footer strong{color:#ffd21c}
 
-footer strong{
-  color:#ffd21c;
-}
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-  header{
-    padding:14px 18px;
-  }
-
-  nav{
-    gap:10px;
-  }
-
-  nav a{
-    font-size:12px;
-  }
-
-  .logo{
-    font-size:20px;
-  }
-
-  .hero{
-    min-height:430px;
-  }
-
-  .hero h1{
-    font-size:40px;
-  }
-
-  .hero p{
-    font-size:15px;
-  }
-
-  .search-box{
-    flex-direction:column;
-    background:transparent;
-    gap:8px;
-  }
-
-  .search-box input{
-    border-radius:10px;
-  }
-
-  .search-box button{
-    padding:14px;
-    border-radius:10px;
-  }
-
-  .movie-grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-  }
-
-  .poster{
-    height:220px;
-  }
-
-  .poster-title{
-    font-size:17px;
-  }
-
-  .section{
-    padding:35px 0;
-  }
-}
-
-@media(max-width:400px){
-
-  .movie-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .movie-info h3{
-    font-size:14px;
-  }
-
-  .poster{
-    height:195px;
-  }
+@media(max-width:650px){
+  header{padding:13px 18px}
+  .logo{font-size:20px}
+  nav{gap:10px}
+  nav a{font-size:12px}
+  h1{font-size:40px}
+  .hero p{font-size:15px}
+  .search{flex-direction:column;background:transparent;gap:8px}
+  .search input{border-radius:9px}
+  .search button{padding:13px;border-radius:9px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:11px}
+  .poster{height:210px}
+  .poster-name{font-size:16px}
+  .info{padding:10px}
+  .info h3{font-size:14px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-
 <header>
-
-<div class="logo">🎬 CineWorld</div>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#languages">Languages</a>
-<a href="#movies">Movies</a>
-</nav>
-
+  <div class="logo">🎬 CineWorld</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#languages">Languages</a>
+    <a href="#movies">Movies</a>
+  </nav>
 </header>
 
-
-<!-- HERO -->
-
 <section class="hero" id="home">
+  <div class="hero-box">
+    <div class="badge">🇮🇳 Indian Cinema Discovery</div>
+    <h1>Discover <span>Indian Movies</span></h1>
+    <p>Search and explore movies from different Indian languages.</p>
 
-<div class="hero-content">
-
-<div class="badge">🇮🇳 Indian Cinema Discovery</div>
-
-<h1>Discover <span>Indian Movies</span></h1>
-
-<p>Search and explore movies from different Indian languages.</p>
-
-<div class="search-box">
-
-<input
-type="text"
-id="searchInput"
-placeholder="Search movies..."
->
-
-<button onclick="searchMovies()">🔎 Search</button>
-
-</div>
-
-</div>
-
+    <div class="search">
+      <input id="search" placeholder="Search movie name...">
+      <button onclick="doSearch()">🔎 Search</button>
+    </div>
+  </div>
 </section>
 
+<section id="languages">
+<div class="container">
+  <div class="title">
+    <h2>🎭 Languages</h2>
+    <span>Indian Cinema</span>
+  </div>
 
-<!-- LANGUAGES -->
+  <div class="languages" id="languagesList"></div>
+</div>
+</section>
 
-<section class="section" id="languages">
-
+<section id="movies">
 <div class="container">
 
-<div class="section-title">
-<h2>🎭 Languages</h2>
-<span>Indian Cinema</span>
+  <div class="title">
+    <h2>🔥 Popular Movies</h2>
+    <span id="count"></span>
+  </div>
+
+  <div class="filters">
+    <select id="genre" onchange="render()">
+      <option value="All">All Genres</option>
+      <option>Action</option>
+      <option>Drama</option>
+      <option>Romance</option>
+      <option>Comedy</option>
+      <option>Thriller</option>
+    </select>
+
+    <select id="year" onchange="render()">
+      <option value="All">All Years</option>
+      <option>2024</option>
+      <option>2023</option>
+      <option>2022</option>
+      <option>2021</option>
+      <option>2020</option>
+      <option>2019</option>
+      <option>2018</option>
+      <option>2017</option>
+      <option>2016</option>
+      <option>2015</option>
+    </select>
+
+    <select id="rating" onchange="render()">
+      <option value="0">All Ratings</option>
+      <option value="8">8+ Rating</option>
+      <option value="7">7+ Rating</option>
+      <option value="6">6+ Rating</option>
+    </select>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="empty" id="empty">
+    <h2>😕 No movies found</h2>
+    <p>Try another search or filter.</p>
+  </div>
+
 </div>
-
-<div class="language-list">
-
-<button class="language-btn active" onclick="filterLanguage('All',this)">All</button>
-
-<button class="language-btn" onclick="filterLanguage('Telugu',this)">Telugu</button>
-
-<button class="language-btn" onclick="filterLanguage('Hindi',this)">Hindi</button>
-
-<button class="language-btn" onclick="filterLanguage('Tamil',this)">Tamil</button>
-
-<button class="language-btn" onclick="filterLanguage('Malayalam',this)">Malayalam</button>
-
-<button class="language-btn" onclick="filterLanguage('Kannada',this)">Kannada</button>
-
-<button class="language-btn" onclick="filterLanguage('Bengali',this)">Bengali</button>
-
-<button class="language-btn" onclick="filterLanguage('Marathi',this)">Marathi</button>
-
-<button class="language-btn" onclick="filterLanguage('Gujarati',this)">Gujarati</button>
-
-<button class="language-btn" onclick="filterLanguage('Punjabi',this)">Punjabi</button>
-
-<button class="language-btn" onclick="filterLanguage('Odia',this)">Odia</button>
-
-<button class="language-btn" onclick="filterLanguage('Assamese',this)">Assamese</button>
-
-<button class="language-btn" onclick="filterLanguage('Bhojpuri',this)">Bhojpuri</button>
-
-<button class="language-btn" onclick="filterLanguage('Urdu',this)">Urdu</button>
-
-</div>
-
-</div>
-
 </section>
 
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="close" onclick="closeModal()">×</div>
+    <div class="modal-poster" id="mPoster"></div>
+    <h2 id="mTitle"></h2>
 
-<!-- MOVIES -->
+    <div class="details">
+      <span class="detail" id="mLang"></span>
+      <span class="detail" id="mYear"></span>
+      <span class="detail" id="mRating"></span>
+      <span class="detail" id="mGenre"></span>
+    </div>
 
-<section class="section" id="movies">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>🔥 Popular Movies</h2>
-
-<span id="movieCount">Movies</span>
-
+    <p id="mDesc"></p>
+  </div>
 </div>
-
-
-<!-- FILTERS -->
-
-<div class="filters">
-
-<select id="genreFilter" onchange="applyFilters()">
-
-<option value="All">All Genres</option>
-<option value="Action">Action</option>
-<option value="Drama">Drama</option>
-<option value="Romance">Romance</option>
-<option value="Comedy">Comedy</option>
-<option value="Thriller">Thriller</option>
-
-</select>
-
-
-<select id="yearFilter" onchange="applyFilters()">
-
-<option value="All">All Years</option>
-<option value="2024">2024</option>
-<option value="2023">2023</option>
-<option value="2022">2022</option>
-<option value="2021">2021</option>
-<option value="2019">2019</option>
-<option value="2018">2018</option>
-<option value="2017">2017</option>
-<option value="2016">2016</option>
-<option value="2015">2015</option>
-<option value="2014">2014</option>
-<option value="2012">2012</option>
-
-</select>
-
-
-<select id="ratingFilter" onchange="applyFilters()">
-
-<option value="0">All Ratings</option>
-<option value="8">8+ Rating</option>
-<option value="7">7+ Rating</option>
-<option value="6">6+ Rating</option>
-
-</select>
-
-</div>
-
-
-<div class="movie-grid" id="movieGrid"></div>
-
-<div class="no-results" id="noResults">
-
-<h2>😕 No movies found</h2>
-
-<p>Try another search or filter.</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- MODAL -->
-
-<div class="modal" id="movieModal">
-
-<div class="modal-box">
-
-<div class="close" onclick="closeModal()">×</div>
-
-<div class="modal-poster" id="modalPoster"></div>
-
-<h2 id="modalTitle"></h2>
-
-<div class="details">
-
-<span class="detail" id="modalLanguage"></span>
-
-<span class="detail" id="modalYear"></span>
-
-<span class="detail" id="modalRating"></span>
-
-<span class="detail" id="modalGenre"></span>
-
-</div>
-
-<p id="modalDescription"></p>
-
-</div>
-
-</div>
-
-
-<!-- FOOTER -->
 
 <footer>
-
-<p>© 2026 <strong>CineWorld</strong></p>
-
-<p>Indian Movie Discovery Website</p>
-
+  <p>© 2026 <strong>CineWorld</strong></p>
+  <p>Indian Movie Discovery Website</p>
 </footer>
 
-
 <script>
+const movies=[
+["RRR","Telugu",2022,7.8,"Action","🔥","An epic action drama about friendship and revolution."],
+["Pushpa: The Rise","Telugu",2021,7.6,"Action","🌲","An action drama set around the red sandalwood trade."],
+["Sita Ramam","Telugu",2022,8.5,"Romance","💌","A romantic story involving a soldier and a mysterious letter."],
+["Jersey","Telugu",2019,8.5,"Drama","🏏","An emotional sports drama about a former cricketer."],
+["Baahubali 2","Telugu",2017,8.2,"Action","⚔️","A grand historical action adventure."],
+["Arjun Reddy","Telugu",2017,8.1,"Drama","❤️","A dramatic story about love and personal struggles."],
+["Hi Nanna","Telugu",2023,8.2,"Romance","👨‍👧","A family romantic drama about love and memories."],
+["Dasara","Telugu",2023,7.6,"Action","🔥","An action drama set in a mining village."],
 
-/* MOVIE DATABASE */
+["Dangal","Hindi",2016,8.3,"Drama","🥇","A sports drama about wrestling and determination."],
+["3 Idiots","Hindi",2009,8.4,"Comedy","🎓","Three friends experience college life and friendship."],
+["Jawan","Hindi",2023,7.5,"Action","🚆","An action thriller involving justice."],
+["Drishyam 2","Hindi",2022,8.2,"Thriller","🔦","A family thriller involving a carefully protected secret."],
+["Chhichhore","Hindi",2019,8.0,"Comedy","🏫","A comedy drama about friendship and college memories."],
+["Kahaani","Hindi",2012,8.1,"Thriller","🔎","A mystery thriller about a woman searching for her husband."],
 
-const movies = [
+["Vikram","Tamil",2022,8.0,"Action","🎯","An action thriller involving an undercover team."],
+["96","Tamil",2018,8.5,"Romance","📷","A nostalgic romantic drama about school friends."],
+["Kaithi","Tamil",2019,8.4,"Action","🚔","An intense action thriller about a prisoner."],
+["Master","Tamil",2021,7.3,"Action","🎬","An action drama involving a teacher."],
+["Nayakan","Tamil",1987,8.7,"Drama","👑","A classic Indian crime drama."],
 
-{
-title:"RRR",
-language:"Telugu",
-year:2022,
-rating:7.8,
-genre:"Action",
-icon:"🔥",
-description:"An epic Indian action drama following two legendary revolutionaries and their journey of friendship."
-},
+["Premam","Malayalam",2015,8.3,"Romance","🌸","A coming-of-age romantic drama."],
+["Drishyam","Malayalam",2013,8.6,"Thriller","🔦","A family thriller about protecting loved ones."],
+["Kumbalangi Nights","Malayalam",2019,8.5,"Drama","🌊","A family drama about four brothers."],
 
-{
-title:"Pushpa: The Rise",
-language:"Telugu",
-year:2021,
-rating:7.6,
-genre:"Action",
-icon:"🌲",
-description:"A powerful action drama set around the red sandalwood trade and an ambitious man rising through the ranks."
-},
+["Kantara","Kannada",2022,8.2,"Action","🌿","A folklore-inspired action drama."],
+["KGF: Chapter 1","Kannada",2018,8.2,"Action","⛏️","An action drama about ambition and gold mining."],
+["Dia","Kannada",2020,8.0,"Romance","🌹","An emotional romantic drama."],
+["777 Charlie","Kannada",2022,8.6,"Drama","🐶","An emotional journey involving friendship and a dog."],
 
-{
-title:"Sita Ramam",
-language:"Telugu",
-year:2022,
-rating:8.5,
-genre:"Romance",
-icon:"💌",
-description:"A romantic drama about a soldier, a mysterious letter and a love story across time."
-},
-
-{
-title:"Jersey",
-language:"Telugu",
-year:2019,
-rating:8.5,
-genre:"Drama",
-icon:"🏏",
-description:"An emotional sports drama about a former cricketer who decides to return to the game."
-},
-
-{
-title:"Baahubali 2",
-language:"Telugu",
-year:2017,
-rating:8.2,
-genre:"Action",
-icon:"⚔️",
-description:"A grand historical action adventure continuing the story of the kingdom of Mahishmati."
-},
-
-{
-title:"Arjun Reddy",
-language:"Telugu",
-year:2017,
-rating:8.1,
-genre:"Drama",
-icon:"❤️",
-description:"A dramatic story following a passionate medical student through love and personal struggles."
-},
-
-{
-title:"Dangal",
-language:"Hindi",
-year:2016,
-rating:8.3,
-genre:"Drama",
-icon:"🥇",
-description:"A sports drama inspired by the journey of two young wrestlers and their determined father."
-},
-
-{
-title:"3 Idiots",
-language:"Hindi",
-year:2009,
-rating:8.4,
-genre:"Comedy",
-icon:"🎓",
-description:"Three engineering students navigate friendship, education and the pressures of college life."
-},
-
-{
-title:"Jawan",
-language:"Hindi",
-year:2023,
-rating:7.5,
-genre:"Action",
-icon:"🚆",
-description:"An action thriller involving a determined man and a group of people seeking justice."
-},
-
-{
-title:"Drishyam 2",
-language:"Hindi",
-year:2022,
-rating:8.2,
-genre:"Thriller",
-icon:"🕵️",
-description:"A family thriller about protecting a secret while facing a renewed investigation."
-},
-
-{
-title:"Vikram",
-language:"Tamil",
-year:2022,
-rating:8.0,
-genre:"Action",
-icon:"🎯",
-description:"An action thriller connecting a covert team, a mysterious agent and a dangerous criminal network."
-},
-
-{
-title:"96",
-language:"Tamil",
-year:2018,
-rating:8.5,
-genre:"Romance",
-icon:"📷",
-description:"A nostalgic romantic drama about two school friends meeting again years later."
-},
-
-{
-title:"Kaithi",
-language:"Tamil",
-year:2019,
-rating:8.4,
-genre:"Action",
-icon:"🚔",
-description:"A tense action thriller following a prisoner trying to reunite with his daughter."
-},
-
-{
-title:"Premam",
-language:"Malayalam",
-year:2015,
-rating:8.3,
-genre:"Romance",
-icon:"🌸",
-description:"A coming-of-age romantic drama following a man's journey through different stages of love."
-},
-
-{
-title:"Drishyam",
-language:"Malayalam",
-year:2013,
-rating:8.6,
-genre:"Thriller",
-icon:"🔦",
-description:"A family thriller about an ordinary man who goes to extraordinary lengths to protect his family."
-},
-
-{
-title:"Kumbalangi Nights",
-language:"Malayalam",
-year:2019,
-rating:8.5,
-genre:"Drama",
-icon:"🌊",
-description:"A character-driven family drama set around four brothers living together in a coastal village."
-},
-
-{
-title:"Kantara",
-language:"Kannada",
-year:2022,
-rating:8.2,
-genre:"Action",
-icon:"🌿",
-description:"A folklore-inspired action drama rooted in village traditions, land and identity."
-},
-
-{
-title:"KGF: Chapter 1",
-language:"Kannada",
-year:2018,
-rating:8.2,
-genre:"Action",
-icon:"⛏️",
-description:"An action drama following an ambitious man who rises through the dangerous world of gold mining."
-},
-
-{
-title:"Dia",
-language:"Kannada",
-year:2020,
-rating:8.0,
-genre:"Romance",
-icon:"🌹",
-description:"An emotional romantic drama involving love, choices and unexpected turns."
-},
-
-{
-title:"Chhichhore",
-language:"Hindi",
-year:2019,
-rating:8.0,
-genre:"Comedy",
-icon:"🏫",
-description:"A comedy-drama about friendship, college memories and learning to face failure."
-},
-
-{
-title:"Kahaani",
-language:"Hindi",
-year:2012,
-rating:8.1,
-genre:"Thriller",
-icon:"🔎",
-description:"A mystery thriller following a pregnant woman searching for her missing husband."
-},
-
-{
-title:"The Lunchbox",
-language:"Hindi",
-year:2013,
-rating:7.8,
-genre:"Romance",
-icon:"🍱",
-description:"A gentle romantic drama built around an unexpected exchange of lunchbox notes."
-},
-
-{
-title:"Piku",
-language:"Hindi",
-year:2015,
-rating:7.6,
-genre:"Comedy",
-icon:"🚗",
-description:"A warm comedy-drama about a daughter, her eccentric father and a road journey."
-}
-
+["Pather Panchali","Bengali",1955,8.5,"Drama","🎞️","A landmark Bengali drama following a family."],
+["Sairat","Marathi",2016,8.0,"Romance","❤️","A Marathi romantic drama about young love."],
+["Carry On Jatta","Punjabi",2012,8.0,"Comedy","😂","A popular Punjabi comedy about mistaken identities."],
+["Chaal Jeevi Laiye","Gujarati",2019,8.0,"Drama","🏔️","A Gujarati family drama about relationships and life."]
 ];
 
+const languages=["All","Telugu","Hindi","Tamil","Malayalam","Kannada","Bengali","Marathi","Gujarati","Punjabi"];
 
-/* CURRENT FILTER */
+let selected="All";
+let query="";
 
-let selectedLanguage = "All";
-let searchText = "";
+const langBox=document.getElementById("languagesList");
 
-
-/* CREATE POSTER */
-
-function createPoster(movie){
-
-return `
-<div class="poster">
-<div class="poster-content">
-<div class="poster-icon">${movie.icon}</div>
-<div class="poster-title">${movie.title}</div>
-</div>
-</div>
-`;
-
-}
-
-
-/* DISPLAY MOVIES */
-
-function displayMovies(list){
-
-const grid = document.getElementById("movieGrid");
-
-grid.innerHTML = "";
-
-document.getElementById("movieCount").textContent =
-list.length + " Movies";
-
-if(list.length === 0){
-
-document.getElementById("noResults").style.display = "block";
-
-return;
-
-}
-
-document.getElementById("noResults").style.display = "none";
-
-
-list.forEach(function(movie,index){
-
-const card = document.createElement("div");
-
-card.className = "movie-card";
-
-card.innerHTML =
-
-createPoster(movie) +
-
-`
-<div class="movie-info">
-
-<h3>${movie.title}</h3>
-
-<p class="rating">⭐ ${movie.rating}</p>
-
-<p class="meta">${movie.language} • ${movie.year}</p>
-
-<p class="meta">${movie.genre}</p>
-
-</div>
-`;
-
-card.onclick = function(){
-
-openModal(movie);
-
-};
-
-grid.appendChild(card);
-
+languages.forEach((lang,i)=>{
+  const b=document.createElement("button");
+  b.className="lang"+(i===0?" active":"");
+  b.textContent=lang;
+  b.onclick=()=>{
+    selected=lang;
+    document.querySelectorAll(".lang").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active");
+    render();
+    document.getElementById("movies").scrollIntoView({behavior:"smooth"});
+  };
+  langBox.appendChild(b);
 });
 
+function render(){
+
+  const genre=document.getElementById("genre").value;
+  const year=document.getElementById("year").value;
+  const rating=Number(document.getElementById("rating").value);
+
+  const list=movies.filter(m=>
+    (selected==="All"||m[1]===selected) &&
+    m[0].toLowerCase().includes(query) &&
+    (genre==="All"||m[4]===genre) &&
+    (year==="All"||String(m[2])===year) &&
+    m[3]>=rating
+  );
+
+  const grid=document.getElementById("grid");
+  grid.innerHTML="";
+  document.getElementById("count").textContent=list.length+" Movies";
+
+  document.getElementById("empty").style.display=
+    list.length?"none":"block";
+
+  list.forEach(m=>{
+    const card=document.createElement("div");
+    card.className="card";
+
+    card.innerHTML=`
+      <div class="poster">
+        <div>
+          <div class="poster-icon">${m[5]}</div>
+          <div class="poster-name">${m[0]}</div>
+        </div>
+      </div>
+      <div class="info">
+        <h3>${m[0]}</h3>
+        <div class="rating">⭐ ${m[3]}</div>
+        <div class="meta">${m[1]} • ${m[2]}</div>
+        <div class="meta">${m[4]}</div>
+      </div>
+    `;
+
+    card.onclick=()=>openMovie(m);
+    grid.appendChild(card);
+  });
 }
 
-
-/* FILTER EVERYTHING */
-
-function applyFilters(){
-
-const genre =
-document.getElementById("genreFilter").value;
-
-const year =
-document.getElementById("yearFilter").value;
-
-const rating =
-Number(document.getElementById("ratingFilter").value);
-
-
-const filtered = movies.filter(function(movie){
-
-const matchesLanguage =
-selectedLanguage === "All" ||
-movie.language === selectedLanguage;
-
-const matchesSearch =
-movie.title.toLowerCase().includes(searchText);
-
-const matchesGenre =
-genre === "All" ||
-movie.genre === genre;
-
-const matchesYear =
-year === "All" ||
-String(movie.year) === year;
-
-const matchesRating =
-movie.rating >= rating;
-
-return matchesLanguage &&
-matchesSearch &&
-matchesGenre &&
-matchesYear &&
-matchesRating;
-
-});
-
-
-displayMovies(filtered);
-
+function doSearch(){
+  query=document.getElementById("search").value.toLowerCase().trim();
+  render();
+  document.getElementById("movies").scrollIntoView({behavior:"smooth"});
 }
 
-
-/* LANGUAGE FILTER */
-
-function filterLanguage(language,button){
-
-selectedLanguage = language;
-
-document.querySelectorAll(".language-btn")
-.forEach(function(btn){
-
-btn.classList.remove("active");
-
+document.getElementById("search").addEventListener("input",e=>{
+  query=e.target.value.toLowerCase().trim();
+  render();
 });
 
-button.classList.add("active");
-
-document.getElementById("movies")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-applyFilters();
-
+function openMovie(m){
+  document.getElementById("mPoster").textContent=m[5]+" "+m[0];
+  document.getElementById("mTitle").textContent=m[0];
+  document.getElementById("mLang").textContent="🎭 "+m[1];
+  document.getElementById("mYear").textContent="📅 "+m[2];
+  document.getElementById("mRating").textContent="⭐ "+m[3];
+  document.getElementById("mGenre").textContent="🎬 "+m[4];
+  document.getElementById("mDesc").textContent=m[6];
+  document.getElementById("modal").style.display="block";
 }
-
-
-/* SEARCH */
-
-function searchMovies(){
-
-searchText =
-document.getElementById("searchInput")
-.value
-.toLowerCase()
-.trim();
-
-document.getElementById("movies")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-applyFilters();
-
-}
-
-
-document
-.getElementById("searchInput")
-.addEventListener("input",function(){
-
-searchText = this.value.toLowerCase().trim();
-
-applyFilters();
-
-});
-
-
-/* MODAL */
-
-function openModal(movie){
-
-document.getElementById("modalPoster").textContent =
-movie.icon + " " + movie.title;
-
-document.getElementById("modalTitle").textContent =
-movie.title;
-
-document.getElementById("modalLanguage").textContent =
-"🎭 " + movie.language;
-
-document.getElementById("modalYear").textContent =
-"📅 " + movie.year;
-
-document.getElementById("modalRating").textContent =
-"⭐ " + movie.rating;
-
-document.getElementById("modalGenre").textContent =
-"🎬 " + movie.genre;
-
-document.getElementById("modalDescription").textContent =
-movie.description;
-
-document.getElementById("movieModal").style.display =
-"block";
-
-}
-
 
 function closeModal(){
-
-document.getElementById("movieModal").style.display =
-"none";
-
+  document.getElementById("modal").style.display="none";
 }
 
-
-window.onclick = function(event){
-
-const modal =
-document.getElementById("movieModal");
-
-if(event.target === modal){
-
-closeModal();
-
-}
-
+window.onclick=e=>{
+  if(e.target===document.getElementById("modal")) closeModal();
 };
 
-
-/* START WEBSITE */
-
-displayMovies(movies);
-
+render();
 </script>
 
 </body>
-                                                                               </html>
+</html>
